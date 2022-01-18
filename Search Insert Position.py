@@ -7,14 +7,12 @@ class Solution(object):
         """
         if target in nums:
             return nums.index(target)
+        elif(max(nums)<target):
+            return len(nums)
+
         else:
-            absolute_difference_function = lambda list_value : abs(list_value - target)
-            closest_value = min(nums, key=absolute_difference_function)
-            if(closest_value>target):
-                val=nums.index(closest_value)-1
-                if(val<0):
-                    return 0
-                elif(val==0):
-                    return 1
-            else:
-                return nums.index(closest_value)+1
+            for i in nums:
+                if(i>target):
+                    closest_value=i
+                    print(closest_value)
+                    return nums.index(closest_value)
